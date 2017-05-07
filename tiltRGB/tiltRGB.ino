@@ -9,6 +9,11 @@
 */
 
 #include <Esplora.h> 
+
+// Initialize variables needed for reading from the accelerometer
+int xRed = 0;
+int yGreen = 0;
+int zBlue = 0;
   
 void setup() {
   Serial.begin(9600);
@@ -16,9 +21,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  int xRed = abs(Esplora.readAccelerometer(X_AXIS));    // read the X axis
-  int yGreen = abs(Esplora.readAccelerometer(Y_AXIS));    // read the Y axis
-  int zBlue = abs(Esplora.readAccelerometer(Z_AXIS));    // read the Z axis
+  xRed = abs(Esplora.readAccelerometer(X_AXIS));    // read the X axis
+  yGreen = abs(Esplora.readAccelerometer(Y_AXIS));    // read the Y axis
+  zBlue = abs(Esplora.readAccelerometer(Z_AXIS));    // read the Z axis
   Serial.print("red: ");      // print the label for X
   Serial.print(xRed);      // print the value for the X axis
   Serial.print("\tgreen: ");    // print a tab character, then the label for Y
